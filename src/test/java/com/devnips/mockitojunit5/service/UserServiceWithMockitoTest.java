@@ -14,6 +14,7 @@ import java.util.Optional;
 
 /**
  * This test class shows how to mock a dependency class using Mockito annotations.
+ * The below @ExtendWith annotation enabled the Mockito extension, which is required for processing annotations.
  */
 @ExtendWith(MockitoExtension.class)
 class UserServiceWithMockitoTest {
@@ -51,9 +52,9 @@ class UserServiceWithMockitoTest {
 
     @Test
     void findById_non_existent_id() {
-        Mockito.doReturn(Optional.of(new User(100L)))
+        Mockito.doReturn(Optional.empty())
                 .when(userRepository)
-                .findById(100L);
+                .findById(200L);
 
         Optional<User> result = userService.findById(200L);
 
