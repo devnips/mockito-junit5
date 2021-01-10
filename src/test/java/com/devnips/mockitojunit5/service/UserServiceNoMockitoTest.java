@@ -12,7 +12,7 @@ import org.springframework.data.domain.Sort;
 import java.util.List;
 import java.util.Optional;
 
-class UserServiceNoMockitoTest {
+public class UserServiceNoMockitoTest {
 
     private UserService userService;
 
@@ -39,6 +39,9 @@ class UserServiceNoMockitoTest {
         Assertions.assertTrue(optionalUser.isPresent());
     }
 
+    /**
+     * Creating a dummy implementation of UserRepository.
+     */
     class MockUserRepository implements UserRepository {
 
         @Override
